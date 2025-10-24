@@ -1,0 +1,197 @@
+/* header */
+header {
+	min-height: 10vh;
+	background-color: var(--primary_color);
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: center;
+	padding: 0 0 24px 0;
+	/* position: sticky;
+	top: 0;
+	z-index: 99; */
+}
+
+.branding-bar {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 8px 32px;
+
+	.logo {
+		height: 84px;
+		width: 84px;
+	}
+
+	.name {
+		font-family: Island_Moments;
+		font-size: 96px;
+	}
+
+}
+
+.action-btn {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	gap: 8px;
+
+	a {
+		color: var(--font_color);
+		text-decoration: none;
+		font-size: 16px;
+	}
+}
+
+nav {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 12px 32px;
+	gap: 32px;
+
+	.left-placeholder {
+		flex: 1;
+	}
+
+	.right-placeholder {
+		flex: 1;
+	}
+
+	ul {
+		flex: 1;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+
+		li {
+			list-style: none;
+
+			a {
+				font-size: 16px;
+				text-decoration: none;
+			}
+		}
+	}
+
+	.nav-extra-btn {
+		flex: 1;
+		display: flex;
+		flex-direction: row;
+		justify-content: end;
+		align-items: center;
+		gap: 32px;
+
+		div {
+			flex-grow: 1/2;
+			padding: 0 12px;
+
+			a img {
+				height: 38px;
+				width: 38px;
+			}
+		}
+
+		.search-container {
+			flex: grow;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			border: 1px solid var(--font_color);
+			border-radius: 24px;
+			gap: 64px;
+			flex-grow: 1;
+
+			input[type="text"] {
+				background-color: transparent;
+				border: none;
+				padding: 8px 12px;
+			}
+
+			input[type="text"]::placeholder {
+				color: var(--font_color);
+			}
+
+			input[type="text"]:focus {
+				outline: none;
+				box-shadow: none;
+				border: none;
+			}
+		}
+	}
+
+}
+
+/* footer */
+footer {
+	min-height: 10vh;
+	background-color: var(--primary_color);
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: center;
+	/* position: absolute;
+	bottom: 0; */
+	padding: 24px;
+	gap: 12px;
+
+	.logo-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: 12px;
+
+		.logo {
+			height: 80px;
+		}
+
+		.name {
+			font-family: Island_Moments;
+			font-size: 80px;
+		}
+	}
+
+	ul {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		gap: 24px;
+		border-bottom: 1px solid var(--font_color);
+		padding-bottom: 12px;
+
+		li {
+			list-style: none;
+
+			a {
+				font-size: 16px;
+				text-decoration: none;
+			}
+		}
+	}
+
+	.socials {
+		display: flex;
+		flex-direction: row;
+		gap: 20px;
+
+		a img {
+			height: 72px;
+			width: 72px;
+		}
+	}
+
+	p {
+		font-size: 16px;
+	}
+
+}

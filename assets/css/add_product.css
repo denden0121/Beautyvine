@@ -1,0 +1,162 @@
+@font-face {
+	font-family: Island_Moments;
+	src: url(../font/Island_Moments/IslandMoments-Regular.ttf);
+}
+
+@font-face {
+	font-family: Inter;
+	src: url('../font/Inter/Inter-VariableFont_opsz\,wght.ttf') format('truetype');
+	font-style: normal;
+	font-weight: 100 900;
+}
+
+@font-face {
+	font-family: Inter;
+	src: url('../font/Inter/Inter-Italic-VariableFont_opsz\,wght.ttf') format('truetype');
+	font-style: italic;
+	font-weight: 100 900;
+}
+
+@font-face {
+	font-family: Playfair_Display;
+	src: url('../font/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+	font-style: normal;
+	font-weight: 100 900;
+}
+
+@font-face {
+	font-family: Playfair_Display;
+	src: url('../font/Playfair_Display/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
+	font-style: italic;
+	font-weight: 100 900;
+}
+
+:root {
+	--primary_color: #FCA5A5;
+	--font_color: #000000;
+	--bg_color: #FFFFFF;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: Inter;
+	color: var(--font_color);
+}
+
+button,
+a,
+.logo {
+	cursor: pointer;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: center;
+	min-height: 100dvh;
+	min-width: 100%;
+}
+
+main {
+	min-height: 100dvh;
+	width: 100%;
+	padding: 64px 0;
+}
+
+section {
+	position: relative;
+	min-height: 80dvh;
+	width: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: center;
+	gap: 24px;
+	padding: 24px 0;
+}
+
+.modal {
+	border: 1px solid rgba(0, 0, 0, 0.281);
+	min-height: 50dvh;
+	width: 50dvw;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 12px;
+	padding: 12px;
+}
+
+form {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding: 24px 0;
+	gap: 12px;
+
+	div {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		gap: 8px;
+		padding: 0 4px;
+
+		.tags-label {
+			flex: 1;
+
+			input {
+				width: 100%;
+			}
+		}
+
+		.name-label {
+			flex: 2;
+		}
+	}
+}
+
+input,
+textarea,
+select {
+	padding: 12px 8px;
+	border: 1px solid rgba(0, 0, 0, 0.247);
+	border-radius: 4px;
+}
+
+label {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: start;
+	gap: 8px;
+	padding: 12px 4px;
+}
+
+.description {
+	width: 100%;
+
+	textarea {
+		width: 100%;
+		height: 120px;
+	}
+}
+
+.add-product-btn {
+	border: none;
+	padding: 12px 24px;
+	background-color: #FCA5A5;
+	color: white;
+	border-radius: 8px;
+	font-size: 14px;
+	width: 100%;
+	margin: 32px 0 0 0;
+}
