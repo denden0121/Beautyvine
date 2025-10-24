@@ -97,7 +97,7 @@ main {
 	flex: 1;
 	width: 100%;
 	display: grid;
-	grid-template-columns: repeat(6, 1fr);
+	grid-template-columns: repeat(5, 1fr);
 	align-items: center;
 	gap: 20px;
 	padding: 12px;
@@ -156,10 +156,6 @@ main {
 	}
 }
 
-
-
-
-
 .title {
 	font-size: 40px;
 }
@@ -192,7 +188,6 @@ main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	text-decoration: none;
 }
 
 

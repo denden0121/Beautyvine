@@ -41,6 +41,7 @@ if (!isset($_GET['id'])) {
 					</div>
 					<div class="options">
 						<h3 class="title"></h3>
+						<p class="available"></p>
 						<p>Quantity</p>
 						<div class="quantity-container">
 							<button class="decrease">-</button>
@@ -64,33 +65,11 @@ if (!isset($_GET['id'])) {
 	<?php include('footer.php'); ?>
 
 	<script>
-		let initialQuantity = 1;
-		const quantity = document.querySelector('.quantity');
-		const incBtn = document.querySelector('.increase');
-		const decBtn = document.querySelector('.decrease');
-
-		quantity.innerText = initialQuantity;
-
-		incBtn.addEventListener('click', () => {
-			initialQuantity++;
-			quantity.innerText = initialQuantity;
-			console.log(initialQuantity);
-		});
-
-		decBtn.addEventListener('click', () => {
-			if (initialQuantity > 1) {
-				initialQuantity--;
-				quantity.innerText = initialQuantity;
-				console.log(initialQuantity);
-			}
-		});
-	</script>
-
-	<script>
 		const productId = "<?php echo htmlspecialchars($id); ?>";
 		const img = document.querySelector('.product-img');
 		const price = document.querySelector('.price');
 		const title = document.querySelector('.title');
+		const available = document.querySelector('.available');
 		const description = document.querySelector('.description');
 		const container = document.querySelector('.product-container');
 
@@ -105,13 +84,17 @@ if (!isset($_GET['id'])) {
 			}
 		};
 
+		let stock = 0;
+
 		const displayData = (data) => {
 			data.forEach(product => {
 				if (product.id == productId) {
 					title.innerText = product.name;
 					price.innerText += product.price;
+					available.innerText = product.quantity + " Stock Available";
 					description.innerText = product.description;
 					img.src = `../db/${product.img_url}`;
+					stock = product.quantity;
 				}
 			});
 		};
@@ -147,6 +130,31 @@ if (!isset($_GET['id'])) {
 		const addToCartBtn = document.querySelector('.btn-container');
 		addToCartBtn.addEventListener('click', () => {
 			addToCart();
+		});
+	</script>
+
+	<script>
+		let initialQuantity = 1;
+		const quantity = document.querySelector('.quantity');
+		const incBtn = document.querySelector('.increase');
+		const decBtn = document.querySelector('.decrease');
+
+		quantity.innerText = initialQuantity;
+
+		incBtn.addEventListener('click', () => {
+			if (initialQuantity < stock) {
+				initialQuantity++;
+				quantity.innerText = initialQuantity;
+				console.log(initialQuantity);
+			}
+		});
+
+		decBtn.addEventListener('click', () => {
+			if (initialQuantity > 1) {
+				initialQuantity--;
+				quantity.innerText = initialQuantity;
+				console.log(initialQuantity);
+			}
 		});
 	</script>
 </body>

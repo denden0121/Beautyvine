@@ -31,7 +31,8 @@ if (!isset($_SESSION['username'])) {
 					<h4>Name</h4>
 					<h4>Quantity</h4>
 					<h4>Total Price</h4>
-					<h4>Remove to cart</h4>
+					<h4>Remove to Cart</h4>
+					<h4>Place Order</h4>
 				</div>
 			</div>
 		</section>
@@ -83,10 +84,10 @@ if (!isset($_SESSION['username'])) {
 					card.innerHTML += `
 						<img class="product-img" src="../db/${match.img_url}" alt="${match.name}">
 						<p class="name">${match.name}</p>
-						<p class="quantity">Quantity: ${product.quantity}</p>
+						<p class="quantity">x${product.quantity}</p>
 						<p class="total-price">₱${product.quantity * match.price}</p>
 						<button class="remove" onClick="removeCartProduct( ${userId}, ${product.id})">Remove</button>
-						<button class="buy" data-id="${product.productId}">Buy</button>
+						<a class="buy" href="place_order.php?userId=${userId}&product=${product.id}&manageStock=${match.id}">Place Order</a>
 					`;
 					container.appendChild(card);
 				}
@@ -117,6 +118,7 @@ if (!isset($_SESSION['username'])) {
 			}
 		}
 	</script>
+
 </body>
 
 </html>
