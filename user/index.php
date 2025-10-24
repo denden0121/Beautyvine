@@ -12,20 +12,25 @@ if (!isset($_SESSION['username'])) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Cheek</title>
-	<link rel="stylesheet" href="../assets/css/shop.css">
+	<title>Beautyvine</title>
+	<link rel="stylesheet" href="../assets/css/style.css">
 	<link rel="stylesheet" href="../assets/css/footer-header.css">
 </head>
 
 <body>
-	<!-- header -->
 	<?php include('header.php'); ?>
 
 	<main>
-		<section class="shop">
-			<h3>Cheeks</h3>
-			<div class="product-container"></div>
+
+		<?php include('hero_section.php'); ?>
+
+		<section id="show-now" class="best-seller">
+			<h3>Recommended Product</h3>
+			<p>Shop the latest product you love</p>
+			<ul class="product-container">
+			</ul>
 		</section>
+
 	</main>
 
 	<!-- footer -->
@@ -48,33 +53,38 @@ if (!isset($_SESSION['username'])) {
 		};
 
 		const displayData = (data) => {
-			if (data.length > 0) {
-				container.innerHTML += '';
+			const limit = 5;
+			let diplayCount = 0;
 
-				data.forEach(product => {
+			container.innerHTML += '';
 
-					if (product.tags === "cheeks") {
+			data.forEach(product => {
 
-						const card = document.createElement('div');
-						card.classList.add('card');
-						card.innerHTML = `
-						<img src="../db/${product.img_url}" alt="${product.name}">
-						<p class="name">${product.name}</p>
-						<p class="price">₱${product.price}</p>
-						<a class="overlay" href="selected_product.php?id=${product.id}">
-							<p>ADD TO CART</p>
-						</a>
+				if (diplayCount < limit) {
+
+					const li = document.createElement('li');
+					li.innerHTML = `
+						<div class="card">
+							<p class="title">686 Lipstick Snob</p>
+							<img src="../db/${product.img_url}" alt="${product.name}">
+							<p class="name">${product.name}</p>
+							<p class="price">₱${product.price}</p>
+							<a class="overlay" href="selected_product.php?id=${product.id}">
+								<p>ADD TO CART</p>
+							</a>
+						</div>
 					`;
-						container.appendChild(card);
+					container.appendChild(li);
 
-					}
+					diplayCount++;
+				}
 
-				});
-			}
+			});
 		};
 
 		getData();
 	</script>
+
 </body>
 
 </html>

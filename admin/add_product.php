@@ -11,32 +11,10 @@
 
 <body>
 	<!-- header -->
-	<Header>
-		<div class="branding-bar">
-			<img class="logo" src="../assets/images/Logo.png" alt="Logo">
-			<p class="name">Beautyvine</p>
-			<div class="action-btn">
-				<a href="#">LOGIN</a>
-				<p>|</p>
-				<a href="#">REGISTER</a>
-			</div>
-		</div>
-		<nav>
-			<div class="left-placeholder"></div>
-			<div class="left-placeholder"></div>
-			<ul>
-				<li><a href="#">Manage Product</a></li>
-				<li><a href="#">Manage User</a></li>
-			</ul>
-			<div class="right-placeholder"></div>
-			<div class="right-placeholder"></div>
-		</nav>
-	</Header>
-
+	<?php include('header.php'); ?>
 
 	<main>
 		<section>
-
 			<div class="modal">
 				<form id="productForm" enctype="multipart/form-data">
 					<div>
@@ -76,31 +54,11 @@
 					<button class="add-product-btn" type="submit">Add Product</button>
 				</form>
 			</div>
-
 		</section>
-
 	</main>
 
 	<!-- footer -->
-	<Footer>
-		<div class="logo-container">
-			<img class="logo" src="../assets/images/Logo.png" alt="Logo">
-			<p class="name">Beautyvine</p>
-		</div>
-		<ul>
-			<li><a href="#">HOME</a></li>
-			<li><a href="#">BRANDS</a></li>
-			<li><a href="#">SHOP</a></li>
-			<li><a href="#">ABOUT US</a></li>
-			<li><a href="#">CUSTOMER SUPPORT</a></li>
-		</ul>
-		<div class="socials">
-			<a href="#"><img src="../assets/icons/facebook.png" alt="Facebook"></a>
-			<a href="#"><img src="../assets/icons/instagram.png" alt="Instagram"></a>
-			<a href="#"><img src="../assets/icons/email.png" alt="email"></a>
-		</div>
-		<p>@2025 Beautyvine Philippines . All Right Reserved.Store Specialist . Inc</p>
-	</Footer>
+	<?php include('footer.php'); ?>
 
 	<!-- script -->
 	<script>

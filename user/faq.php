@@ -1,3 +1,11 @@
+<?php
+session_start();
+$username = $_SESSION['username'];
+if (!isset($_SESSION['username'])) {
+	header('Location: ../index.php');
+	exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,48 +13,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Frequently asked questions</title>
-	<link rel="stylesheet" href="assets/css/faq.css">
-	<link rel="stylesheet" href="assets/css/footer-header.css">
+	<link rel="stylesheet" href="../assets/css/faq.css">
+	<link rel="stylesheet" href="../assets/css/footer-header.css">
 </head>
 
 <body>
-	<!-- header -->
-	<Header>
-		<div class="branding-bar">
-			<img class="logo" src="assets/images/Logo.png" alt="Logo">
-			<p class="name">Beautyvine</p>
-			<div class="action-btn">
-				<a href="#">LOGIN</a>
-				<p>|</p>
-				<a href="#">REGISTER</a>
-			</div>
-		</div>
-		<nav>
-			<div class="left-placeholder"></div>
-			<ul>
-				<li><a href="#">HOME</a></li>
-				<li><a href="#">BRANDS</a></li>
-				<li><a href="#">SHOP</a></li>
-				<li><a href="#">ABOUT US</a></li>
-				<li><a href="#">CUSTOMER SUPPORT</a></li>
-			</ul>
-			<div class="nav-extra-btn">
-				<div class="search-container">
-					<input type="text" placeholder="Search here ... ">
-					<img src="assets/icons/search.png" alt="Search">
-				</div>
-				<div>
-					<a href="#">
-						<img src="assets/icons/cart.png" alt="Cart">
-					</a>
-					<a href="#">
-						<img src="assets/icons/favorite.png" alt="Favorite">
-					</a>
-				</div>
-			</div>
-		</nav>
-	</Header>
 
+	<!-- header -->
+	<?php include('header.php'); ?>
 
 	<main>
 		<section class="shop">
@@ -120,29 +94,9 @@
 	</main>
 
 	<!-- footer -->
-	<Footer>
-		<div class="logo-container">
-			<img class="logo" src="assets/images/Logo.png" alt="Logo">
-			<p class="name">Beautyvine</p>
-		</div>
-		<ul>
-			<li><a href="#">HOME</a></li>
-			<li><a href="#">BRANDS</a></li>
-			<li><a href="#">SHOP</a></li>
-			<li><a href="#">ABOUT US</a></li>
-			<li><a href="#">CUSTOMER SUPPORT</a></li>
-		</ul>
-		<div class="socials">
-			<a href="#"><img src="assets/icons/facebook.png" alt="Facebook"></a>
-			<a href="#"><img src="assets/icons/instagram.png" alt="Instagram"></a>
-			<a href="#"><img src="assets/icons/email.png" alt="email"></a>
-		</div>
-		<p>@2025 Beautyvine Philippines . All Right Reserved.Store Specialist . Inc</p>
-	</Footer>
-
+	<?php include('footer.php'); ?>
 
 	<script>
-
 		let initialQuantity = 1;
 
 		const incBtn = document.querySelector('.increase');
@@ -163,7 +117,6 @@
 			let current = parseInt(quantity.innerText);
 			if (current > 1) quantity.innerText = current - 1;
 		})
-
 	</script>
 </body>
 

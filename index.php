@@ -25,7 +25,7 @@
 				<button>Login</button>
 			</form>
 			<p>
-				Don’t have an account? <a href="#">Register</a>
+				Don’t have an account? <a href="register.php">Register</a>
 			</p>
 		</section>
 		<section class="banner">

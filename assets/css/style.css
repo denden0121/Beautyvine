@@ -37,6 +37,11 @@
 	--bg_color: #FFFFFF;
 }
 
+html {
+	scroll-behavior: smooth;
+	transition: scroll 1s ease-in-out;
+}
+
 /* xs: <576px
 sm: ≥576px
 md: ≥768px
@@ -132,16 +137,17 @@ main {
 			color: #FFFFFF;
 		}
 
-		button {
+		.button {
 			background-color: #F2F2F2;
 			color: #4B4B4B;
 			border: none;
 			font-size: 64px;
 			padding: 12px 32px;
 			border-radius: 12px;
+			text-decoration: none;
 		}
 
-		button:hover {
+		.button:hover {
 			transform: scale(1.05);
 			transition: all .3s ease-out;
 		}

@@ -19,10 +19,11 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 if ($user && password_verify($password_raw, $user['password'])) {
 
 	$_SESSION['username'] = $user['username'];
+	$_SESSION['userId'] = $user['id'];
 	$_SESSION['email'] = $user['email'];
 	$_SESSION['login'] = true;
 
-	header('Location: ../user/category.php');
+	header('Location: ../user/index.php');
 	exit;
 } else {
 	echo "<script>alert('Invalid email or password'); window.history.back();</script>";
