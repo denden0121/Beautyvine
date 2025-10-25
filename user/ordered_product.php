@@ -13,8 +13,8 @@ if (!isset($_SESSION['username'])) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Cart</title>
-	<link rel="stylesheet" href="../assets/css/cart.css">
+	<title>Order</title>
+	<link rel="stylesheet" href="../assets/css/ordered_product.css">
 	<link rel="stylesheet" href="../assets/css/footer-header.css">
 </head>
 
@@ -24,15 +24,14 @@ if (!isset($_SESSION['username'])) {
 
 	<main>
 		<section class="shop">
-			<h3>Cart</h3>
+			<h3>Ordered Products</h3>
 			<div class="selected-container">
 				<div class="display">
 					<h4>Product</h4>
-					<h4>Name</h4>
 					<h4>Quantity</h4>
 					<h4>Total Price</h4>
-					<h4>Remove to Cart</h4>
-					<h4>Place Order</h4>
+					<h4>Payment Method</h4>
+					<h4>To Receive</h4>
 				</div>
 			</div>
 		</section>
@@ -46,7 +45,7 @@ if (!isset($_SESSION['username'])) {
 		const userId = "<?php echo htmlspecialchars($userId); ?>";
 		const getAllCart = async () => {
 			try {
-				const res = await fetch('../db/get_all_cart.php', {
+				const res = await fetch('../db/get_all_ordered.php', {
 					method: 'POST',
 					body: JSON.stringify({
 						userId,
@@ -69,7 +68,7 @@ if (!isset($_SESSION['username'])) {
 
 		const displayData = (data, allProductData) => {
 			if (!data || data.length === 0) {
-				container.innerHTML = '<p>No products found in cart.</p>';
+				container.innerHTML = '<p>No products found in ordered.</p>';
 				return;
 			}
 
@@ -82,12 +81,12 @@ if (!isset($_SESSION['username'])) {
 					const card = document.createElement('div');
 					card.classList.add('display');
 					card.innerHTML += `
-						<img class="product-img" src="../db/${match.img_url}" alt="${match.name}">
 						<p class="name">${match.name}</p>
 						<p class="quantity">x${product.quantity}</p>
 						<p class="total-price">₱${product.quantity * match.price}</p>
-						<button class="remove" onClick="removeCartProduct( ${userId}, ${product.id})">Remove</button>
-						<a class="buy" href="place_order.php?userId=${userId}&product=${product.id}&manageStock=${match.id}">Place Order</a>
+						<p class="method">Cash on deliver</p>
+						<button class="buy" onClick="removeOrderedProduct(${product.id})">Order Received</button>
+					
 					`;
 					container.appendChild(card);
 				}
@@ -107,6 +106,27 @@ if (!isset($_SESSION['username'])) {
 					body: JSON.stringify({
 						userId,
 						product
+					})
+				})
+
+				const data = await res.json();
+				alert(data.message)
+				location.reload();
+			} catch (err) {
+				console.error(err);
+			}
+		}
+	</script>
+
+	<script>
+		const removeOrderedProduct = async (productId) => {
+			console.log(`product: ${productId}`)
+
+			try {
+				const res = await fetch('../db/remove_to_ordered.php', {
+					method: 'POST',
+					body: JSON.stringify({
+						productId
 					})
 				})
 

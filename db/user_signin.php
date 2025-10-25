@@ -17,14 +17,20 @@ $stmt->execute();
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if ($user && password_verify($password_raw, $user['password'])) {
-
-	$_SESSION['username'] = $user['username'];
-	$_SESSION['userId'] = $user['id'];
-	$_SESSION['email'] = $user['email'];
-	$_SESSION['login'] = true;
-
-	header('Location: ../user/index.php');
-	exit;
+	if ($user['designation'] === "admin") {
+		$_SESSION['login'] = true;
+		$_SESSION['email'] = $user['email'];
+		header('Location: ../admin/manage_product.php');
+		exit;
+	} elseif ($user['designation'] === "user") {
+		$_SESSION['username'] = $user['username'];
+		$_SESSION['userId'] = $user['id'];
+		$_SESSION['email'] = $user['email'];
+		$_SESSION['designation'] = $user['designation'];
+		$_SESSION['login'] = true;
+		header('Location: ../user/index.php');
+		exit;
+	}
 } else {
 	echo "<script>alert('Invalid email or password'); window.history.back();</script>";
 	exit;

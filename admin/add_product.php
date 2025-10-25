@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['login'])) {
+	header('Location: ../index.php');
+	exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +42,7 @@
 					</div>
 					<label class="description" for="description">
 						Description
-						<textarea name="description" placeholder="Description"></textarea>
+						<textarea name="description" placeholder="Description" required></textarea>
 					</label>
 					<div>
 						<label for="price">
@@ -75,8 +82,8 @@
 					body: formData
 				});
 
-				const data = await res.text();
-				alert(data);
+				const data = await res.json();
+				alert(data.message);
 				form.reset();
 			} catch (err) {
 				console.error('Upload failed:', err);

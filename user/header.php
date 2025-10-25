@@ -26,7 +26,7 @@
 				<a href="cart.php">
 					<img src="../assets/icons/cart.png" alt="Cart">
 				</a>
-				<a href="cart.php">
+				<a href="ordered_product.php">
 					<img src="../assets/icons/favorite.png" alt="Favorite">
 				</a>
 			</div>

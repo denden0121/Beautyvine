@@ -152,6 +152,7 @@ if (isset($_GET['userId']) && isset($_GET['product']) && isset($_GET['manageStoc
 		let orderQuantity;
 		let orderTotalCost;
 		let updatedStock;
+		let availableStock;
 
 
 		const displayCartData = (data, productData) => {
@@ -173,46 +174,53 @@ if (isset($_GET['userId']) && isset($_GET['product']) && isset($_GET['manageStoc
 			//test
 			console.log(productData[0].quantity - data[0].quantity)
 			updatedStock = productData[0].quantity - data[0].quantity;
+			availableStock = productData[0].quantity;
 
 		}
 
 
+
 		const placeOrderProduct = async () => {
 
-			//save the ordered product
-			try {
-				const res = await fetch('../db/add_to_ordered.php', {
-					method: 'POST',
-					body: JSON.stringify({
-						orderUserId,
-						orderProductId,
-						orderQuantity,
-						orderTotalCost,
-						updatedStock
+			if (availableStock >= orderQuantity) {
+				//save the ordered product 
+				try {
+					const res = await fetch('../db/add_to_ordered.php', {
+						method: 'POST',
+						body: JSON.stringify({
+							orderUserId,
+							orderProductId,
+							orderQuantity,
+							orderTotalCost,
+							updatedStock
+						})
 					})
-				})
 
-				const data = await res.json();
-				alert(data.message);
-				window.location.href = "cart.php";
-			} catch (err) {
-				console.error(err);
-			}
+					const data = await res.json();
+					alert(data.message);
+					window.location.href = "cart.php";
+				} catch (err) {
+					console.error(err);
+				}
 
-			//remove the product to the cart
-			const product = productId;
-			try {
-				const res = await fetch('../db/remove_to_cart.php', {
-					method: 'POST',
-					body: JSON.stringify({
-						userId,
-						product
+				//remove the product to the cart
+				const product = productId;
+				try {
+					const res = await fetch('../db/remove_to_cart.php', {
+						method: 'POST',
+						body: JSON.stringify({
+							userId,
+							product
+						})
 					})
-				})
 
-				const data = await res.json();
-			} catch (err) {
-				console.error(err);
+					const data = await res.json();
+				} catch (err) {
+					console.error(err);
+				}
+
+			} else {
+				alert('Not enough stock available');
 			}
 
 		}
