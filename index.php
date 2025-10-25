@@ -29,7 +29,7 @@
 			</p>
 		</section>
 		<section class="banner">
-			<img src="assets/images/login_bg.png" alt="">
+			<img src="assets/images/login_bg.jpg" alt="">
 		</section>
 	</main>
 

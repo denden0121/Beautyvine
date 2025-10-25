@@ -55,7 +55,7 @@ main {
 	height: 100dvh;
 	width: 100dvw;
 	display: flex;
-	background-color: var(--primary_color);
+	background-color: var(--bg_color);
 }
 
 .login {
@@ -69,7 +69,7 @@ main {
 
 .banner {
 	flex: 1;
-	background-color: red;
+	background-color: var(--bg_color);
 	position: relative;
 	overflow: hidden;
 }
@@ -78,6 +78,7 @@ main {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	transform: scaleX(-1);
 }
 
 h4 {

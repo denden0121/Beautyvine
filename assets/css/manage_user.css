@@ -116,6 +116,7 @@ h3 {
 table {
 	width: 100%;
 	border-collapse: collapse;
+	border-spacing: 20px 10px;
 }
 
 th,

@@ -11,7 +11,7 @@ if (!isset($_SESSION['login'])) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Cart</title>
+	<title>Product</title>
 	<link rel="stylesheet" href="../assets/css/manage_product.css">
 	<link rel="stylesheet" href="../assets/css/footer-header.css">
 </head>
@@ -31,7 +31,6 @@ if (!isset($_SESSION['login'])) {
 						<th>Category</th>
 						<th>Price</th>
 						<th>Quantity</th>
-						<th>Update</th>
 						<th>Delete</th>
 					</tr>
 				</table>
@@ -70,7 +69,6 @@ if (!isset($_SESSION['login'])) {
 				<td>${product.tags}</td>
 				<td>₱${product.price}</td>
 				<td>x${product.quantity}</td>
-				<td><a class="update" href="#">Update</a></td>
 				<td><button class="delete" onClick="removeProduct(${product.id})">Delete</button></td>
 				`;
 				table.appendChild(tr);
