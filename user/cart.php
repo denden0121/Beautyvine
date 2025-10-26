@@ -86,8 +86,8 @@ if (!isset($_SESSION['username'])) {
 						<p class="name">${match.name}</p>
 						<p class="quantity">x${product.quantity}</p>
 						<p class="total-price">₱${product.quantity * match.price}</p>
-						<button class="remove" onClick="removeCartProduct( ${userId}, ${product.id})">Remove</button>
-						<a class="buy" href="place_order.php?userId=${userId}&product=${product.id}&manageStock=${match.id}">Place Order</a>
+						<button class="remove" onClick="removeCartProduct( ${userId}, ${product.id})"><img class="remove-img" src="../assets/icons/decline.png" alt=""></button>
+						<a class="buy" href="place_order.php?userId=${userId}&product=${product.id}&manageStock=${match.id}"><img class="order-img" src="../assets/icons/purchase.png" alt=""></a>
 					`;
 					container.appendChild(card);
 				}

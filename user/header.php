@@ -19,15 +19,15 @@
 		</ul>
 		<div class="nav-extra-btn">
 			<div class="search-container">
-				<input type="text" placeholder="Search here ... ">
-				<img src="../assets/icons/search.png" alt="Search">
+				<!-- <input type="text" placeholder="Search here ... ">
+				<img src="../assets/icons/search.png" alt="Search"> -->
 			</div>
 			<div>
 				<a href="cart.php">
 					<img src="../assets/icons/cart.png" alt="Cart">
 				</a>
 				<a href="ordered_product.php">
-					<img src="../assets/icons/favorite.png" alt="Favorite">
+					<img src="../assets/icons/purchase_black.png" alt="Purchase">
 				</a>
 			</div>
 		</div>

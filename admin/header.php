@@ -11,8 +11,9 @@
 		<div class="left-placeholder"></div>
 		<ul>
 			<li><a href="add_product.php">Add Product</a></li>
-			<li><a href="manage_product.php">Manage Product</a></li>
-			<li><a href="manage_user.php">Manage User</a></li>
+			<li><a href="manage_product.php">Manage Products</a></li>
+			<li><a href="manage_orders.php">Manage Orders</a></li>
+			<li><a href="manage_user.php">Manage Users</a></li>
 		</ul>
 		<div class="right-placeholder"></div>
 	</nav>

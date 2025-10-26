@@ -1,14 +1,5 @@
-<?php
-session_start();
-$username = $_SESSION['username'];
-if (!isset($_SESSION['username'])) {
-	header('Location: ../index.php');
-	exit;
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
-
 
 <head>
 	<meta charset="UTF-8">
@@ -19,8 +10,6 @@ if (!isset($_SESSION['username'])) {
 </head>
 
 <body>
-	<!-- header -->
-	<?php include('header.php'); ?>
 
 	<main>
 		<section class="about-wrapper">
@@ -66,8 +55,6 @@ if (!isset($_SESSION['username'])) {
 
 	</main>
 
-	<!-- footer -->
-	<?php include('footer.php'); ?>
 
 </body>
 

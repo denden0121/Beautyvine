@@ -83,6 +83,7 @@ nav {
 				text-decoration: none;
 			}
 		}
+
 	}
 
 	.nav-extra-btn {
@@ -109,7 +110,8 @@ nav {
 			flex-direction: row;
 			justify-content: space-between;
 			align-items: center;
-			border: 1px solid var(--font_color);
+			/* border: 1px solid var(--font_color); */
+			border: none;
 			border-radius: 24px;
 			gap: 64px;
 			flex-grow: 1;
@@ -181,6 +183,11 @@ footer {
 				font-size: 16px;
 				text-decoration: none;
 			}
+
+			a:hover {
+				color: white;
+				transition: all .3s ease-out;
+			}
 		}
 	}
 
@@ -199,4 +206,9 @@ footer {
 		font-size: 16px;
 	}
 
+}
+
+.active {
+	color: white;
+	text-decoration: underline;
 }

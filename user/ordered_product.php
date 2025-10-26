@@ -31,6 +31,7 @@ if (!isset($_SESSION['username'])) {
 					<h4>Quantity</h4>
 					<h4>Total Price</h4>
 					<h4>Payment Method</h4>
+					<h4>Status</h4>
 					<h4>To Receive</h4>
 				</div>
 			</div>
@@ -78,6 +79,17 @@ if (!isset($_SESSION['username'])) {
 				const match = allProductData.find(all => all.id == product.productId);
 
 				if (match) {
+					if (product.status === "shipped") {
+						statusCell = `<button class="buy">Order Received</button>`;
+					}
+					if (product.status === "pending") {
+						statusCell = `<button class="buy" style="background-color: gray; border: none; color: #ffffff98">Pending Order</button>`;
+					}
+					if (product.status === "declined") {
+						statusCell = `<button class="buy" style="background-color: black; border: none; color: #ffffffff">Order Declined</button>`;
+					}
+
+
 					const card = document.createElement('div');
 					card.classList.add('display');
 					card.innerHTML += `
@@ -85,8 +97,9 @@ if (!isset($_SESSION['username'])) {
 						<p class="quantity">x${product.quantity}</p>
 						<p class="total-price">₱${product.quantity * match.price}</p>
 						<p class="method">Cash on deliver</p>
-						<button class="buy" onClick="removeOrderedProduct(${product.id})">Order Received</button>
-					
+						<p class="quantity">${product.status}</p>
+						${statusCell}
+						
 					`;
 					container.appendChild(card);
 				}

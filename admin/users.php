@@ -11,37 +11,56 @@ if (!isset($_SESSION['login'])) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Users</title>
+	<title>Document</title>
+	<link rel="stylesheet" href="../assets/css/style.css">
+	<link rel="stylesheet" href="../assets/css/admin_dashboard.css">
 	<link rel="stylesheet" href="../assets/css/manage_user.css">
-	<link rel="stylesheet" href="../assets/css/footer-header.css">
 </head>
 
 <body>
+	<div class="wrapper">
 
-	<!-- header -->
-	<?php include('header.php'); ?>
+		<?php include('dashboard_nav.php') ?>
 
-	<main>
-		<section class="shop">
-			<div class="selected-container">
-				<table class="table">
-					<tr>
-						<th>Username</th>
-						<th>Email</th>
-						<th>Created</th>
-						<th>Status</th>
-						<th>Action</th>
-						<th>Action</th>
-						<th>Action</th>
-					</tr>
-				</table>
+		<main class="main">
+			<div class="welcome">
+				<h1>Manage Orders</h1>
 			</div>
-		</section>
-	</main>
+			<div class="dashboard-info">
+				<section class="shop">
+					<div class="selected-container">
+						<table class="table">
+							<tr>
+								<th>Username</th>
+								<th>Email</th>
+								<th>Created</th>
+								<th>Status</th>
+								<th>Action</th>
+								<th>Action</th>
+								<th>Action</th>
+							</tr>
+						</table>
+					</div>
+				</section>
+			</div>
+		</main>
+	</div>
 
+	<script>
+		let isOn = true;
 
-	<!-- footer -->
-	<?php include('footer.php'); ?>
+		const navToggle = () => {
+			const nav = document.querySelector('.nav');
+
+			if (isOn) {
+				nav.classList.add('hide-nav');
+			} else {
+				nav.classList.remove('hide-nav');
+			}
+			isOn = !isOn;
+		};
+	</script>
+
 
 	<script>
 		const getData = async () => {

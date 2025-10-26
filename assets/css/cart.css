@@ -171,7 +171,7 @@ main {
 
 .remove {
 	background-color: #ffffff00;
-	border: 1px solid #00000021;
+	border: 1px solid #00000046;
 	color: rgb(0, 0, 0);
 	padding: 18px 24px;
 	border-radius: 4px;
@@ -180,6 +180,8 @@ main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+
 }
 
 .buy {
@@ -233,4 +235,14 @@ h4 {
 
 h3 {
 	font-size: 24px;
+}
+
+.remove-img {
+	height: 24px;
+	width: 24px;
+}
+
+.order-img {
+	height: 24px;
+	width: 24px;
 }

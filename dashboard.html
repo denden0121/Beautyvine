@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/admin_dashboard.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<nav class="nav">
+			<button class="nav-toggle-btn" onclick="navToggle()"><img src="assets/icons/menu.png" alt=""></button>
+			<ul>
+				<li><a href="#"><img src="assets/icons/dashboard.png" alt="">Dashboard</a></li>
+				<li><a href="#"><img src="assets/icons/products.png" alt="">Products</a></li>
+				<li><a href="#"><img src="assets/icons/orders.png" alt="">Orders</a></li>
+				<li><a href="#"><img src="assets/icons/customer.png" alt="">Customers</a></li>
+				<li><a href="#"><img src="assets/icons/logout.png" alt="">Logout</a></li>
+			</ul>
+		</nav>
+
+		<main class="main">
+			<div class="welcome">
+				<h1>Dashhboard</h1>
+			</div>
+			<section class="overview">
+				<div class="overview-cards">
+					<h4>46</h4>
+					<p>Total Products</p>
+				</div>
+				<div class="overview-cards">
+					<h4>1029</h4>
+					<p>Total Customers</p>
+				</div>
+				<div class="overview-cards">
+					<h4>112</h4>
+					<p>Total Ordered</p>
+				</div>
+				<div class="overview-cards">
+					<h4>₱849184903</h4>
+					<p>Total Sales</p>
+				</div>
+			</section>
+		</main>
+	</div>
+
+	<script>
+		let isOn = true;
+
+		const navToggle = () => {
+			const nav = document.querySelector('.nav');
+
+			if (isOn) {
+				nav.classList.add('hide-nav');
+			} else {
+				nav.classList.remove('hide-nav');
+			}
+			isOn = !isOn;
+		};
+
+	</script>
+</body>
+
+</html>

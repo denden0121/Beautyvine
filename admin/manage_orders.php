@@ -17,6 +17,7 @@ if (!isset($_SESSION['login'])) {
 </head>
 
 <body>
+
 	<!-- header -->
 	<?php include('header.php'); ?>
 
@@ -25,12 +26,11 @@ if (!isset($_SESSION['login'])) {
 			<div class="selected-container">
 				<table class="table">
 					<tr>
-						<th>Product</th>
-						<th>Name</th>
-						<th>Description</th>
-						<th>Category</th>
-						<th>Price</th>
+						<th>User ID</th>
+						<th>Product ID</th>
 						<th>Quantity</th>
+						<th>Price</th>
+						<th>Status</th>
 						<th>Action</th>
 						<th>Action</th>
 					</tr>
@@ -39,7 +39,8 @@ if (!isset($_SESSION['login'])) {
 		</section>
 	</main>
 
-
+	<!-- backup -->
+	<!-- <td><a class="update" href="update_product.php?id=${product.id}"><img src="../assets/icons/accept.png" alt=""></td> -->
 
 	<!-- footer -->
 	<?php include('footer.php'); ?>
@@ -47,7 +48,7 @@ if (!isset($_SESSION['login'])) {
 	<script>
 		const getData = async () => {
 			try {
-				const res = await fetch('../db/get_all_products.php');
+				const res = await fetch('../db/get_all_orders.php');
 				const data = await res.json();
 				displayData(data);
 			} catch (err) {
@@ -66,14 +67,13 @@ if (!isset($_SESSION['login'])) {
 			data.map(product => {
 				const tr = document.createElement('tr');
 				tr.innerHTML = `
-				<td><img class="product-img" src="../db/${product.img_url}" alt="${product.name}"></td>
-				<td>${product.name}</td>
-				<td>${product.description}</td>
-				<td>${product.tags}</td>
-				<td>₱${product.price}</td>
+				<td>${product.userId}</td>
+				<td>${product.productId}</td>
 				<td>x${product.quantity}</td>
-				<td><a class="update" href="update_product.php?id=${product.id}"><img src="../assets/icons/update.png" alt=""></td>
-				<td><button class="delete" onClick="removeProduct(${product.id})"><img src="../assets/icons/delete.png" alt=""></button></td>
+				<td>₱${product.total}</td>
+				<td>${product.status}</td>
+				<td><button class="delete" onClick="acceptOrder(${product.id})"><img src="../assets/icons/accept.png" alt=""></button></td>
+				<td><button class="delete" onClick="declineOrder(${product.id})"><img src="../assets/icons/decline.png" alt=""></button></td>
 				`;
 				table.appendChild(tr);
 			});
@@ -83,10 +83,29 @@ if (!isset($_SESSION['login'])) {
 	</script>
 
 	<script>
-		const removeProduct = async (productId) => {
-
+		const declineOrder = async (productId) => {
 			try {
-				const res = await fetch('../db/remove_product.php', {
+				const res = await fetch('../db/decline_order.php', {
+					method: 'POST',
+					body: JSON.stringify({
+						productId
+					})
+				})
+
+				const data = await res.json();
+				alert(data.message)
+				location.reload();
+			} catch (err) {
+				console.error(err);
+			}
+
+		}
+	</script>
+
+	<script>
+		const acceptOrder = async (productId) => {
+			try {
+				const res = await fetch('../db/accept_order.php', {
 					method: 'POST',
 					body: JSON.stringify({
 						productId
