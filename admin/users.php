@@ -28,6 +28,10 @@ if (!isset($_SESSION['login'])) {
 			</div>
 			<div class="dashboard-info">
 				<section class="shop">
+					<div class="search-container">
+						<input class="nav-search-input" type="text" placeholder="Search here ... ">
+						<img class="nav-search-btn" src="../assets/icons/search.png" alt="Search">
+					</div>
 					<div class="selected-container">
 						<table class="table">
 							<tr>
@@ -63,10 +67,12 @@ if (!isset($_SESSION['login'])) {
 
 
 	<script>
+		let cacheData;
 		const getData = async () => {
 			try {
 				const res = await fetch('../db/get_all_user.php');
 				const data = await res.json();
+				cacheData = data;
 				displayData(data);
 			} catch (err) {
 				console.error(err);
@@ -171,6 +177,65 @@ if (!isset($_SESSION['login'])) {
 			}
 
 		}
+	</script>
+
+	<!-- search -->
+
+	<script>
+		const searchBtn = document.querySelector(".nav-search-btn");
+		const find = document.querySelector(".nav-search-input");
+
+		find.addEventListener('input', () => {
+			const query = find.value.toLowerCase().trim();
+			const filtered = cacheData.filter(p =>
+				p.email.toLowerCase().includes(query)
+			);
+
+			console.log(filtered);
+			displayFilteredData(filtered);
+
+		});
+
+		searchBtn.addEventListener('click', () => {
+			console.log('search button clicked, searching for: ' + find.value);
+		});
+
+		// display filterd
+		const displayFilteredData = (data) => {
+
+			table.innerHTML = '';
+			table.innerHTML += '';
+
+			if (data.length > 0) {
+				data.forEach(user => {
+					if (user.designation === "user") {
+						const tr = document.createElement('tr');
+						tr.innerHTML = `
+						<td>${user.username}</td>
+						<td>${user.email}</td>
+						<td>
+						${
+							new Date(user.created_at).toLocaleString('en-PH', {
+								year: 'numeric',
+								month: 'short',
+								day: 'numeric',
+								hour: '2-digit',
+								minute: '2-digit',
+								hour12: true
+							})
+							}
+						</td>
+						<td>${user.status}</td>
+						<td><button class="delete" onClick="acceptUser(${user.id})"><img src="../assets/icons/accept.png" alt=""></button></td>
+						<td><button class="delete" onClick="declineUser(${user.id})"><img src="../assets/icons/decline.png" alt=""></button></td>
+						<td><button class="delete" onClick="removeUser(${user.id})"><img src="../assets/icons/delete.png" alt=""></button></td>
+						`;
+						table.appendChild(tr);
+					}
+
+				});
+			}
+		};
 	</script>
 </body>
 

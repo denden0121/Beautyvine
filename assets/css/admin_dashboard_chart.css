@@ -167,3 +167,41 @@ li a:hover {
 	border-radius: 12px;
 	overflow: auto;
 }
+
+
+.search-container {
+	width: 90%;
+	max-height: 48px;
+	flex: grow;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	border: 1px solid rgba(0, 0, 0, 0.281);
+	border-radius: 12px;
+	gap: 64px;
+	flex-grow: 1;
+	padding: 0 14px 0 0;
+
+	input[type="text"] {
+		background-color: transparent;
+		border: none;
+		padding: 14px;
+	}
+
+	input[type="text"]::placeholder {
+		color: var(--font_color);
+	}
+
+	input[type="text"]:focus {
+		outline: none;
+		box-shadow: none;
+		border: none;
+	}
+}
+
+.nav-search-input {}
+
+.nav-search-btn {
+	cursor: pointer;
+}

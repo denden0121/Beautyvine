@@ -19,7 +19,7 @@ if (!isset($_GET['id'])) {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<link rel="stylesheet" href="../assets/css/style.css">
-	<link rel="stylesheet" href="../assets/css/admin_dashboard.css">
+	<link rel="stylesheet" href="../assets/css/admin_dashboard_chart.css">
 	<link rel="stylesheet" href="../assets/css/update_product.css">
 </head>
 

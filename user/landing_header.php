@@ -1,3 +1,6 @@
+<?php
+$current_page = basename($_SERVER['PHP_SELF']); // gets current file name, e.g. "landing_about.php"
+?>
 <Header>
 	<div class="branding-bar">
 		<img class="logo" src="../assets/images/Logo.png" alt="Logo">
@@ -11,10 +14,10 @@
 	<nav>
 		<div class="left-placeholder"></div>
 		<ul>
-			<li><a href="../index.php">HOME</a></li>
-			<li><a href="landing_category.php">SHOP</a></li>
-			<li><a href="landing_about.php">ABOUT US</a></li>
-			<li><a href="landing_faq.php">CUSTOMER SUPPORT</a></li>
+			<li><a href="../index.php" class="<?= ($current_page == 'index.php') ? 'nav-active-btn' : '' ?>">HOME</a></li>
+			<li><a href="landing_category.php" class="<?= ($current_page == 'landing_category.php') ? 'nav-active-btn' : '' ?>">SHOP</a></li>
+			<li><a href="landing_about.php" class="<?= ($current_page == 'landing_about.php') ? 'nav-active-btn' : '' ?>">ABOUT US</a></li>
+			<li><a href="landing_faq.php" class="<?= ($current_page == 'landing_faq.php') ? 'nav-active-btn' : '' ?>">CUSTOMER SUPPORT</a></li>
 		</ul>
 		<div class="nav-extra-btn">
 			<div class="search-container">

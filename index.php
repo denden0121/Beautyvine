@@ -23,7 +23,7 @@
 		<nav>
 			<div class="left-placeholder"></div>
 			<ul>
-				<li><a href="index.php">HOME</a></li>
+				<li><a href="index.php" class="nav-active-btn">HOME</a></li>
 				<li><a href="user/landing_category.php">SHOP</a></li>
 				<li><a href="user/landing_about.php">ABOUT US</a></li>
 				<li><a href="user/landing_faq.php">CUSTOMER SUPPORT</a></li>

@@ -30,6 +30,10 @@ if (!isset($_SESSION['login'])) {
 			</div>
 			<div class="dashboard-info">
 				<section class="shop">
+					<div class="search-container">
+						<input class="nav-search-input" type="text" placeholder="Search here ... ">
+						<img class="nav-search-btn" src="../assets/icons/search.png" alt="Search">
+					</div>
 					<div class="selected-container">
 						<table class="table">
 							<tr>
@@ -65,10 +69,12 @@ if (!isset($_SESSION['login'])) {
 	</script>
 
 	<script>
+		let cacheData;
 		const getData = async () => {
 			try {
 				const res = await fetch('../db/get_all_products.php');
 				const data = await res.json();
+				cacheData = data;
 				displayData(data);
 				console.log(data);
 			} catch (err) {
@@ -122,6 +128,56 @@ if (!isset($_SESSION['login'])) {
 			}
 
 		}
+	</script>
+
+	<!-- search -->
+
+	<script>
+		const searchBtn = document.querySelector(".nav-search-btn");
+		const find = document.querySelector(".nav-search-input");
+
+		find.addEventListener('input', () => {
+			const query = find.value.toLowerCase().trim();
+			const filtered = cacheData.filter(p =>
+				p.name.toLowerCase().includes(query)
+			);
+
+			console.log(filtered);
+			displayFilteredData(filtered);
+
+		});
+
+		searchBtn.addEventListener('click', () => {
+			console.log('search button clicked, searching for: ' + find.value);
+		});
+
+		// display filterd
+		const displayFilteredData = (data) => {
+
+			if (data.length > 0) {
+				data.forEach(product => {
+
+					table.innerHTML = '';
+					table.innerHTML += '';
+
+					data.map(product => {
+						const tr = document.createElement('tr');
+						tr.innerHTML = `
+						<td><img class="product-img" src="../db/${product.img_url}" alt="${product.name}"></td>
+						<td>${product.name}</td>
+						<td>${product.description}</td>
+						<td>${product.tags}</td>
+						<td>₱${product.price}</td>
+						<td>x${product.quantity}</td>
+						<td><a class="update" href="admin_update_product.php?id=${product.id}"><img src="../assets/icons/update.png" alt=""></td>
+						<td><button class="delete" onClick="removeProduct(${product.id})"><img src="../assets/icons/delete.png" alt=""></button></td>
+						`;
+						table.appendChild(tr);
+					});
+
+				});
+			}
+		};
 	</script>
 </body>
 

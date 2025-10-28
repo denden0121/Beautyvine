@@ -1,3 +1,6 @@
+<?php
+$current_page = basename($_SERVER['PHP_SELF']);
+?>
 <Header>
 	<div class="branding-bar">
 		<img class="logo" src="../assets/images/Logo.png" alt="Logo">
@@ -11,15 +14,15 @@
 	<nav>
 		<div class="left-placeholder"></div>
 		<ul>
-			<li><a href="index.php">HOME</a></li>
-			<li><a href="category.php">SHOP</a></li>
-			<li><a href="about.php">ABOUT US</a></li>
-			<li><a href="faq.php">CUSTOMER SUPPORT</a></li>
+			<li><a href="index.php" class="<?= ($current_page == 'index.php') ? 'nav-active-btn' : '' ?>">HOME</a></li>
+			<li><a href="category.php" class="<?= ($current_page == 'category.php') ? 'nav-active-btn' : '' ?>">SHOP</a></li>
+			<li><a href="about.php" class="<?= ($current_page == 'about.php') ? 'nav-active-btn' : '' ?>">ABOUT US</a></li>
+			<li><a href="faq.php" class="<?= ($current_page == 'faq.php') ? 'nav-active-btn' : '' ?>">CUSTOMER SUPPORT</a></li>
 		</ul>
 		<div class="nav-extra-btn">
 			<div class="search-container">
 				<input class="nav-search-input" type="text" placeholder="Search here ... ">
-				<img src="../assets/icons/search.png" alt="Search">
+				<img class="nav-search-btn" src="../assets/icons/search.png" alt="Search">
 			</div>
 			<div>
 				<a href="cart.php">
