@@ -15,13 +15,18 @@ $current_page = basename($_SERVER['PHP_SELF']); // e.g. "products.php"
 			</a>
 		</li>
 		<li>
+			<a href="users.php" class="<?= ($current_page == 'users.php') ? 'admin-nav-active-btn' : '' ?>">
+				<img src="../assets/icons/customer.png" alt="">Customers
+			</a>
+		</li>
+		<li>
 			<a href="orders.php" class="<?= ($current_page == 'orders.php') ? 'admin-nav-active-btn' : '' ?>">
 				<img src="../assets/icons/orders.png" alt="">Orders
 			</a>
 		</li>
 		<li>
-			<a href="users.php" class="<?= ($current_page == 'users.php') ? 'admin-nav-active-btn' : '' ?>">
-				<img src="../assets/icons/customer.png" alt="">Customers
+			<a href="sales.php" class="<?= ($current_page == 'sales.php') ? 'admin-nav-active-btn' : '' ?>">
+				<img src="../assets/icons/sales.png" alt="">Sales
 			</a>
 		</li>
 		<li>

@@ -28,7 +28,7 @@ if (!isset($_SESSION['login'])) {
 			</div>
 			<div class="dashboard-info">
 				<section class="shop">
-					<div class="selected-container">
+					<div class="selected-container scroll">
 						<table class="table">
 							<tr>
 								<th>User ID</th>

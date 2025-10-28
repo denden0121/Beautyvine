@@ -32,7 +32,7 @@ if (!isset($_SESSION['login'])) {
 						<input class="nav-search-input" type="text" placeholder="Search here ... ">
 						<img class="nav-search-btn" src="../assets/icons/search.png" alt="Search">
 					</div>
-					<div class="selected-container">
+					<div class="selected-container scroll">
 						<table class="table">
 							<tr>
 								<th>Username</th>

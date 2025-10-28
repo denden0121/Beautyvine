@@ -163,6 +163,38 @@ li a:hover {
 	}
 }
 
+.chart-container-line {
+	width: 90%;
+	height: 50%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: start;
+	gap: 14px;
+
+	div {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: start;
+		border: 1px solid rgba(0, 0, 0, 0.281);
+		border-radius: 12px;
+		padding: 24px 12px;
+		display: flex;
+		padding: 36px;
+		width: 100%;
+		align-self: center;
+	}
+
+	p {
+		font-size: 28px;
+		border: none;
+
+	}
+
+
+}
+
 #dashboard-table {
 	border-radius: 12px;
 	overflow: auto;
@@ -210,4 +242,8 @@ li a:hover {
 .admin-nav-active-btn {
 	background-color: lch(62.37% 62.85 21.1);
 	;
+}
+
+.scroll {
+	overflow: auto;
 }

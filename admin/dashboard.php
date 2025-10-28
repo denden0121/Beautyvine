@@ -54,7 +54,7 @@ if (!isset($_SESSION['login'])) {
 					</div>
 					<canvas id="myChart"></canvas>
 				</div>
-				<div class="chart-container">
+				<div class="chart-container scroll">
 					<div>
 						<p>New Orders</p>
 					</div>
