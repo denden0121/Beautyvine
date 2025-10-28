@@ -151,3 +151,8 @@ li a:hover {
 		z-index: 1;
 	}
 }
+
+.admin-nav-active-btn {
+	background-color: lch(62.37% 62.85 21.1);
+	;
+}

@@ -205,3 +205,9 @@ li a:hover {
 .nav-search-btn {
 	cursor: pointer;
 }
+
+
+.admin-nav-active-btn {
+	background-color: lch(62.37% 62.85 21.1);
+	;
+}
