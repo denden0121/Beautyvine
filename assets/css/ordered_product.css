@@ -179,7 +179,7 @@ main {
 
 .buy {
 	background-color: #FCA5A5;
-	border: 1px solid #FCA5A5;
+	border: none;
 	color: #ffffff;
 	padding: 18px 24px;
 	border-radius: 4px;
@@ -188,6 +188,7 @@ main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	width: 50%;
 }
 
 
@@ -222,4 +223,14 @@ select option {
 
 h4 {
 	font-size: 18px;
+}
+
+.status {
+	width: max-content;
+	height: max-content;
+	border: none;
+	padding: 4px 8px;
+	border-radius: 12px;
+	color: rgb(255, 255, 255);
+	background-color: #FCA5A5;
 }

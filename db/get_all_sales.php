@@ -2,7 +2,7 @@
 include('conn.php');
 header('Content-Type: application/json');
 
-$stmt = $conn->prepare("SELECT SUM(total) AS total_sales FROM ordered WHERE status = 'shipped'");
+$stmt = $conn->prepare("SELECT SUM(productTotal) AS total_sales FROM sales;");
 
 if ($stmt->execute()) {
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);

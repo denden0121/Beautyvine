@@ -1,11 +1,3 @@
-<?php
-session_start();
-$username = $_SESSION['username'];
-if (!isset($_SESSION['username'])) {
-	header('Location: ../index.php');
-	exit;
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -96,26 +88,12 @@ if (!isset($_SESSION['username'])) {
 	<!-- footer -->
 	<?php include('landing_footer.php'); ?>
 
+	<!-- nav search  -->
 	<script>
-		let initialQuantity = 1;
-
-		const incBtn = document.querySelector('.increase');
-		const decBtn = document.querySelector('.decrease');
-		const quantity = document.querySelector('.quantity');
-
-		// Set initial quantity
-		quantity.innerText = initialQuantity;
-
-		// Increase button
-		incBtn.addEventListener('click', () => {
-			let current = parseInt(quantity.innerText);
-			quantity.innerText = current + 1;
-		});
-
-		// Decrease button
-		decBtn.addEventListener('click', () => {
-			let current = parseInt(quantity.innerText);
-			if (current > 1) quantity.innerText = current - 1;
+		const searchBtn = document.querySelector(".nav-search-btn");
+		searchBtn.addEventListener('click', () => {
+			const find = document.querySelector(".nav-search-input").value;
+			alert('searching: ' + find)
 		})
 	</script>
 </body>

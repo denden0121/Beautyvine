@@ -16,6 +16,7 @@ if (!isset($_SESSION['username'])) {
 	<title>Category</title>
 	<link rel="stylesheet" href="../assets/css/category.css">
 	<link rel="stylesheet" href="../assets/css/footer-header.css">
+	<link rel="stylesheet" href="../assets/css/slide.css">
 </head>
 
 <body>
@@ -93,6 +94,17 @@ if (!isset($_SESSION['username'])) {
 	<!-- footer -->
 	<?php include('footer.php'); ?>
 
+	<!-- slides -->
+	<script>
+		const slides = document.getElementById("slides");
+		const totalSlides = slides.children.length;
+		let index = 0;
+
+		setInterval(() => {
+			index = (index + 1) % totalSlides;
+			slides.style.transform = `translateX(-${index * 100}%)`;
+		}, 2000);
+	</script>
 </body>
 
 </html>

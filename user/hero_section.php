@@ -1,11 +1,10 @@
 <section class="hero">
-	<img src="../assets/images/bg.png" alt="Hero Background" class="hero-image">
-	<img src="../assets/images/bg_girl.png" alt="Hero Background" class="hero-image-girl">
-
-	<div class="hero-content">
-		<div>
-			<h1>“From vine to shine , only at BeautyVine”</h1>
-			<a class="button" href="#show-now">Shop now</a>
+	<div class="slider">
+		<div class="slides" id="slides">
+			<img src="../assets/images/silder/4.png" alt="Slide 1">
+			<img src="../assets/images/silder/3.png" alt="Slide 2">
+			<img src="../assets/images/silder/2.png" alt="Slide 3">
+			<img src="../assets/images/silder/1.png" alt="Slide 4">
 		</div>
 	</div>
 </section>

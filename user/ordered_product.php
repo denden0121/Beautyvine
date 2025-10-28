@@ -32,7 +32,7 @@ if (!isset($_SESSION['username'])) {
 					<h4>Total Price</h4>
 					<h4>Payment Method</h4>
 					<h4>Status</h4>
-					<h4>To Receive</h4>
+					<h4>Action</h4>
 				</div>
 			</div>
 		</section>
@@ -57,8 +57,6 @@ if (!isset($_SESSION['username'])) {
 				const data = await res.json();
 				const allProductData = await allProductRes.json();
 
-				console.log(data)
-				console.log(allProductData)
 				displayData(data, allProductData);
 			} catch (err) {
 				console.error(err);
@@ -79,16 +77,24 @@ if (!isset($_SESSION['username'])) {
 				const match = allProductData.find(all => all.id == product.productId);
 
 				if (match) {
+
+
 					if (product.status === "shipped") {
-						statusCell = `<button class="buy">Order Received</button>`;
+						statusCell = `<button onClick="updateToReceived(${product.id}); saveToSales(${userId},${match.id},${product.quantity},${product.quantity * match.price});" class="buy">Received</button>`;
+						statusDisplay = `<p class="status">${product.status}</p>`;
 					}
 					if (product.status === "pending") {
-						statusCell = `<button class="buy" style="background-color: gray; border: none; color: #ffffff98">Pending Order</button>`;
+						statusCell = `<button onClick="cancelOrder(${product.id})" class="buy">Cancel</button>`;
+						statusDisplay = `<p class="status" >${product.status}</p>`;
 					}
 					if (product.status === "declined") {
-						statusCell = `<button class="buy" style="background-color: black; border: none; color: #ffffffff">Order Declined</button>`;
+						statusCell = `<button onClick="cancelOrder(${product.id})" class="buy">Cancel</button>`;
+						statusDisplay = `<p class="status">${product.status}</p>`;
 					}
-
+					if (product.status === "received") {
+						statusCell = `<button class="buy" onClick="goTo()">Buy Again</button>`;
+						statusDisplay = `<p class="status">${product.status}</p>`;
+					}
 
 					const card = document.createElement('div');
 					card.classList.add('display');
@@ -97,12 +103,13 @@ if (!isset($_SESSION['username'])) {
 						<p class="quantity">x${product.quantity}</p>
 						<p class="total-price">₱${product.quantity * match.price}</p>
 						<p class="method">Cash on deliver</p>
-						<p class="quantity">${product.status}</p>
+						${statusDisplay}
 						${statusCell}
 						
 					`;
 					container.appendChild(card);
 				}
+
 			});
 		};
 
@@ -111,10 +118,9 @@ if (!isset($_SESSION['username'])) {
 
 	<script>
 		const removeCartProduct = async (userId, product) => {
-			console.log(`user: ${userId} product: ${product}`)
 
 			try {
-				const res = await fetch('../db/remove_to_cart.php', {
+				const res = await fetch('../db/remove_to_ordered.php', {
 					method: 'POST',
 					body: JSON.stringify({
 						userId,
@@ -131,9 +137,28 @@ if (!isset($_SESSION['username'])) {
 		}
 	</script>
 
+	<!-- order received -->
 	<script>
-		const removeOrderedProduct = async (productId) => {
-			console.log(`product: ${productId}`)
+		const updateToReceived = async (productId) => {
+
+			try {
+				const res = await fetch('../db/update_to_received.php', {
+					method: 'POST',
+					body: JSON.stringify({
+						productId
+					})
+				})
+
+				const data = await res.json();
+			} catch (err) {
+				console.error(err);
+			}
+		}
+	</script>
+
+	<!-- cancel order -->
+	<script>
+		const cancelOrder = async (productId) => {
 
 			try {
 				const res = await fetch('../db/remove_to_ordered.php', {
@@ -149,6 +174,35 @@ if (!isset($_SESSION['username'])) {
 			} catch (err) {
 				console.error(err);
 			}
+		}
+	</script>
+
+	<script>
+		const saveToSales = async (userId, productId, productQuantity, productTotal) => {
+
+			try {
+				const res = await fetch('../db/save_to_sales.php', {
+					method: 'POST',
+					body: JSON.stringify({
+						userId,
+						productId,
+						productQuantity,
+						productTotal
+					})
+				})
+
+				const data = await res.json();
+				alert(data.message)
+				location.reload();
+			} catch (err) {
+				console.error(err);
+			}
+		}
+	</script>
+
+	<script>
+		const goTo = () => {
+			window.location.href = `category.php?`;
 		}
 	</script>
 

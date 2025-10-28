@@ -68,21 +68,21 @@ main {
 
 .shop {
 	position: relative;
-	min-height: 80dvh;
+	height: max-content;
 	width: 100%;
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
-	justify-content: start;
+	justify-content: center;
 	align-items: center;
+	padding: 124px 0;
 	gap: 24px;
-	padding: 24px 0;
 
 	h3 {
 		font-size: 24px;
 	}
 
-	.product-container {
+	/* .product-container {
 		width: 90%;
 		min-height: 80%;
 		display: flex;
@@ -93,6 +93,17 @@ main {
 		list-style: none;
 		padding: 0;
 		margin: 0;
+	} */
+
+	.product-container {
+		width: 90%;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		justify-items: center;
+		gap: 24px;
+		padding: 0;
+		margin: 0;
+		list-style: none;
 	}
 
 
@@ -101,14 +112,14 @@ main {
 	}
 
 	.card {
-		width: 300px;
-		height: 400px;
+		min-width: 400px;
+		width: 400px;
+		height: 500px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		padding: 24px 12px;
-		border-radius: 12px;
 		gap: 12px;
 		text-align: center;
 		position: relative;
@@ -126,9 +137,13 @@ main {
 		}
 
 		img {
-			max-height: 60%;
-			min-height: 60%;
+			max-height: 65%;
+			min-height: 65%;
 		}
+	}
+
+	a {
+		text-decoration: none;
 	}
 
 	.card .overlay {
@@ -137,7 +152,7 @@ main {
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-color: rgba(0, 0, 0, 0.150);
+		background-color: #00000054;
 		color: white;
 		display: flex;
 		justify-content: center;
@@ -148,11 +163,12 @@ main {
 
 		p {
 			color: #F2F2F2;
-			background-color: rgba(255, 0, 0, 0.788);
+			background-color: #FCA5A5;
 			width: 100%;
 			font-size: 12px;
 			padding: 12px 0;
 		}
+
 	}
 
 	.card:hover .overlay {
@@ -161,7 +177,14 @@ main {
 	}
 
 	.card:hover {
-		transform: scale(1.05);
-		transition: all .3s ease-out;
+		.title {
+			transform: translateY(-15px);
+			transition: all .3s ease-out;
+		}
+
+		img {
+			transform: scale(1.2);
+			transition: all .3s ease-out;
+		}
 	}
 }

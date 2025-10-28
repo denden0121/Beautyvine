@@ -53,7 +53,7 @@ if (!isset($_SESSION['username'])) {
 		};
 
 		const displayData = (data) => {
-			const limit = 5;
+			const limit = 6;
 			let diplayCount = 0;
 
 			container.innerHTML += '';
@@ -85,6 +85,17 @@ if (!isset($_SESSION['username'])) {
 		getData();
 	</script>
 
+	<!-- slides -->
+	<script>
+		const slides = document.getElementById("slides");
+		const totalSlides = slides.children.length;
+		let index = 0;
+
+		setInterval(() => {
+			index = (index + 1) % totalSlides;
+			slides.style.transform = `translateX(-${index * 100}%)`;
+		}, 2000);
+	</script>
 </body>
 
 </html>

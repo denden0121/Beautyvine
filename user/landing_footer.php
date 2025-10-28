@@ -5,10 +5,10 @@
 		<p class="name">Beautyvine</p>
 	</div>
 	<ul>
-		<li><a href="index.php">HOME</a></li>
-		<li><a href="category.php">SHOP</a></li>
-		<li><a href="about.php">ABOUT US</a></li>
-		<li><a href="about.php">CUSTOMER SUPPORT</a></li>
+		<li><a href="../index.php">HOME</a></li>
+		<li><a href="landing_category.php">SHOP</a></li>
+		<li><a href="landing_about.php">ABOUT US</a></li>
+		<li><a href="landing_faq.php">CUSTOMER SUPPORT</a></li>
 	</ul>
 	<div class="socials">
 		<a href="facebook.com"><img src="../assets/icons/facebook.png" alt="Facebook"></a>

@@ -5,14 +5,14 @@ html {
 
 /* header */
 header {
-	min-height: 10vh;
+	max-height: max-content;
 	background-color: var(--primary_color);
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: start;
 	align-items: center;
-	padding: 0 0 24px 0;
+	padding: 0;
 	position: sticky;
 	top: 0;
 	z-index: 99;
@@ -24,7 +24,7 @@ header {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	padding: 8px 32px;
+	padding: 0px 32px;
 
 	.logo {
 		height: 84px;
@@ -57,7 +57,7 @@ nav {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	padding: 12px 32px;
+	padding: 0px 32px 12px 32px;
 	gap: 32px;
 
 	.left-placeholder {
@@ -104,34 +104,7 @@ nav {
 			}
 		}
 
-		.search-container {
-			flex: grow;
-			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
-			align-items: center;
-			/* border: 1px solid var(--font_color); */
-			border: none;
-			border-radius: 24px;
-			gap: 64px;
-			flex-grow: 1;
 
-			input[type="text"] {
-				background-color: transparent;
-				border: none;
-				padding: 8px 12px;
-			}
-
-			input[type="text"]::placeholder {
-				color: var(--font_color);
-			}
-
-			input[type="text"]:focus {
-				outline: none;
-				box-shadow: none;
-				border: none;
-			}
-		}
 	}
 
 }
@@ -145,8 +118,6 @@ footer {
 	flex-direction: column;
 	justify-content: start;
 	align-items: center;
-	/* position: absolute;
-	bottom: 0; */
 	padding: 24px;
 	gap: 12px;
 
@@ -158,12 +129,12 @@ footer {
 		gap: 12px;
 
 		.logo {
-			height: 80px;
+			height: 40px;
 		}
 
 		.name {
 			font-family: Island_Moments;
-			font-size: 80px;
+			font-size: 40px;
 		}
 	}
 
@@ -172,15 +143,15 @@ footer {
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
-		gap: 24px;
+		gap: 32px;
 		border-bottom: 1px solid var(--font_color);
-		padding-bottom: 12px;
+		padding-bottom: 32px 48px;
 
 		li {
 			list-style: none;
 
 			a {
-				font-size: 16px;
+				font-size: 10px;
 				text-decoration: none;
 			}
 
@@ -197,13 +168,13 @@ footer {
 		gap: 20px;
 
 		a img {
-			height: 72px;
-			width: 72px;
+			height: 30px;
+			width: 30px;
 		}
 	}
 
 	p {
-		font-size: 16px;
+		font-size: 10px;
 	}
 
 }
@@ -211,4 +182,38 @@ footer {
 .active {
 	color: white;
 	text-decoration: underline;
+}
+
+.search-container {
+	flex: grow;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	border: 1px solid var(--font_color);
+	border-radius: 24px;
+	gap: 64px;
+	flex-grow: 1;
+
+	input[type="text"] {
+		background-color: transparent;
+		border: none;
+		padding: 8px 12px;
+	}
+
+	input[type="text"]::placeholder {
+		color: var(--font_color);
+	}
+
+	input[type="text"]:focus {
+		outline: none;
+		box-shadow: none;
+		border: none;
+	}
+}
+
+.nav-search-input {}
+
+.nav-search-btn {
+	cursor: pointer;
 }

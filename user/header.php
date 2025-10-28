@@ -12,15 +12,14 @@
 		<div class="left-placeholder"></div>
 		<ul>
 			<li><a href="index.php">HOME</a></li>
-			<!-- <li><a href="category.php">BRANDS</a></li> -->
 			<li><a href="category.php">SHOP</a></li>
 			<li><a href="about.php">ABOUT US</a></li>
 			<li><a href="faq.php">CUSTOMER SUPPORT</a></li>
 		</ul>
 		<div class="nav-extra-btn">
 			<div class="search-container">
-				<!-- <input type="text" placeholder="Search here ... ">
-				<img src="../assets/icons/search.png" alt="Search"> -->
+				<input class="nav-search-input" type="text" placeholder="Search here ... ">
+				<img src="../assets/icons/search.png" alt="Search">
 			</div>
 			<div>
 				<a href="cart.php">

@@ -30,6 +30,8 @@
 			</ul>
 			<div class="nav-extra-btn">
 				<div class="search-container">
+					<input class="nav-search-input" type="text" placeholder="Search here ... ">
+					<img class="nav-search-btn" src="assets/icons/search.png" alt="Search">
 				</div>
 				<div>
 					<a href="login.php">
@@ -43,14 +45,14 @@
 		</nav>
 	</Header>
 
-	<section class="hero">
-		<img src="assets/images/bg.png" alt="Hero Background" class="hero-image">
-		<img src="assets/images/bg_girl.png" alt="Hero Background" class="hero-image-girl">
 
-		<div class="hero-content">
-			<div>
-				<h1>“From vine to shine , only at BeautyVine”</h1>
-				<a class="button" href="#show-now">Shop now</a>
+	<section class="hero">
+		<div class="slider">
+			<div class="slides" id="slides">
+				<img src="assets/images/silder/4.png" alt="Slide 1">
+				<img src="assets/images/silder/3.png" alt="Slide 2">
+				<img src="assets/images/silder/2.png" alt="Slide 3">
+				<img src="assets/images/silder/1.png" alt="Slide 4">
 			</div>
 		</div>
 	</section>
@@ -60,8 +62,8 @@
 		<section id="show-now" class="best-seller">
 			<h3>Recommended Product</h3>
 			<p>Shop the latest product you love</p>
-			<ul class="product-container">
-			</ul>
+			<div class="product-container">
+			</div>
 		</section>
 
 	</main>
@@ -103,7 +105,7 @@
 		};
 
 		const displayData = (data) => {
-			const limit = 5;
+			const limit = 6;
 			let diplayCount = 0;
 
 			container.innerHTML += '';
@@ -135,6 +137,26 @@
 		getData();
 	</script>
 
+	<!-- slides -->
+	<script>
+		const slides = document.getElementById("slides");
+		const totalSlides = slides.children.length;
+		let index = 0;
+
+		setInterval(() => {
+			index = (index + 1) % totalSlides;
+			slides.style.transform = `translateX(-${index * 100}%)`;
+		}, 2000);
+	</script>
+
+	<!-- nav search  -->
+	<script>
+		const searchBtn = document.querySelector(".nav-search-btn");
+		searchBtn.addEventListener('click', () => {
+			const find = document.querySelector(".nav-search-input").value;
+			alert('searching: ' + find)
+		})
+	</script>
 </body>
 
 </html>

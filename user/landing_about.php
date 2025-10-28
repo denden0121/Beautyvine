@@ -1,11 +1,3 @@
-<?php
-session_start();
-$username = $_SESSION['username'];
-if (!isset($_SESSION['username'])) {
-	header('Location: ../index.php');
-	exit;
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,6 +61,14 @@ if (!isset($_SESSION['username'])) {
 	<!-- footer -->
 	<?php include('landing_footer.php'); ?>
 
+	<!-- nav search  -->
+	<script>
+		const searchBtn = document.querySelector(".nav-search-btn");
+		searchBtn.addEventListener('click', () => {
+			const find = document.querySelector(".nav-search-input").value;
+			alert('searching: ' + find)
+		})
+	</script>
 </body>
 
 </html>
